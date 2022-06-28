@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'; 
 import { db } from '../../../Firebase'
-
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
+import { FiTrash } from "react-icons/fi";
+import { collection, query, orderBy, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 
 export default function Index() {
 
@@ -20,7 +20,7 @@ export default function Index() {
       const vehicles = [];
       querySnapshot.forEach((doc) => {
         //push to array
-        vehicles.push(doc.data());
+        vehicles.push({ key: doc.id, ...doc.data()});
       });
       //set items to local state
       setList(vehicles)
@@ -32,6 +32,12 @@ export default function Index() {
       unsubscribe();
     };
   }, []);
+
+  async function deleteThis(docId){
+    await deleteDoc(doc(db, "vehicles", docId)).then(() => { 
+      alert("Deleted !")
+    })
+  }
 
   if(loading){
     return(<>
@@ -52,6 +58,7 @@ export default function Index() {
                 <div 
                   className="singleVehicleImage" 
                   style={{ backgroundImage: "url("+ single.image +")", }}>
+                    <span style={{backgroundColor: '#fff', padding: 10}} onClick={() => deleteThis(single.key)}><FiTrash /></span>
                 </div>
                 <div className="singleVehicleInfo">
                   <div className="singleVehicleInfoLeft">
