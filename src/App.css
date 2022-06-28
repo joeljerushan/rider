@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+.homeSlider img {
+  border-radius: 15px !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.singleVehicle {
+  border: 2px solid #f3f3f3;
+  padding: 0px;
+  border-radius: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.singleVehicle .singleVehicleImage {
+  height: 120px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
+.singleVehicle img {
+  border-radius: 10px;
+}
+.singleVehicle .singleVehicleInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+.singleVehicle .singleVehicleInfoLeft {
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.singleVehicle .singleVehicleInfoLeft h4 {
+  margin-bottom: 0;
+}
+.singleVehicle .singleVehicleInfoLeft h6 {
+  font-weight: 300 !important;
+  font-size: 10px;
+}
+.singleVehicle .singleVehicleInfoRight {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.singleVehicle .singleVehicleInfoRight h4 {
+  margin-bottom: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.singleVehicle .singleVehicleInfoRight small {
+  font-size: 10px;
 }
