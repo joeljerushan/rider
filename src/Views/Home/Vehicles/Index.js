@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Row, Col } from 'react-bootstrap'; 
+import { Row, Col } from 'react-bootstrap'; 
 import { db } from '../../../Firebase'
 
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
